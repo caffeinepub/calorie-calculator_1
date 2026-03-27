@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Dark cosmic theme — always dark */
+    --background: 0.13 0.03 280;
+    --foreground: 0.93 0.02 280;
+    --card: 0.17 0.04 275;
+    --card-foreground: 0.93 0.02 280;
+    --popover: 0.17 0.04 275;
+    --popover-foreground: 0.93 0.02 280;
+
+    /* Gold primary */
+    --primary: 0.78 0.14 82;
+    --primary-foreground: 0.13 0.03 280;
+
+    /* Soft purple secondary */
+    --secondary: 0.28 0.07 280;
+    --secondary-foreground: 0.93 0.02 280;
+
+    --muted: 0.22 0.04 278;
+    --muted-foreground: 0.62 0.05 278;
+
+    --accent: 0.55 0.18 300;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.3 0.06 280;
+    --input: 0.22 0.05 278;
+    --ring: 0.78 0.14 82;
+
+    --chart-1: 0.78 0.14 82;
+    --chart-2: 0.6 0.18 300;
+    --chart-3: 0.55 0.2 260;
+    --chart-4: 0.7 0.15 200;
+    --chart-5: 0.65 0.22 40;
+
+    --sidebar: 0.15 0.035 278;
+    --sidebar-foreground: 0.93 0.02 280;
+    --sidebar-primary: 0.78 0.14 82;
+    --sidebar-primary-foreground: 0.13 0.03 280;
+    --sidebar-accent: 0.28 0.07 280;
+    --sidebar-accent-foreground: 0.93 0.02 280;
+    --sidebar-border: 0.3 0.06 280;
+    --sidebar-ring: 0.78 0.14 82;
+
+    /* Custom cosmic tokens */
+    --gold: 0.78 0.14 82;
+    --gold-dim: 0.62 0.12 82;
+    --purple-glow: 0.55 0.18 300;
+    --star-color: 0.85 0.05 280;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Figtree", sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Playfair Display", serif;
+  }
+
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+
+  .text-gold-dim {
+    color: oklch(var(--gold-dim));
+  }
+
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px oklch(var(--gold) / 0.3), 0 0 40px
+      oklch(var(--gold) / 0.1);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px oklch(var(--purple-glow) / 0.3), 0 0 40px
+      oklch(var(--purple-glow) / 0.1);
+  }
+
+  .card-shimmer {
+    background: linear-gradient(
+      135deg,
+      oklch(0.17 0.05 275) 0%,
+      oklch(0.2 0.07 290) 50%,
+      oklch(0.17 0.05 275) 100%
+    );
+    border: 1px solid oklch(var(--gold) / 0.25);
+  }
+
+  .number-glow {
+    text-shadow: 0 0 20px oklch(var(--gold) / 0.8), 0 0 40px
+      oklch(var(--gold) / 0.4);
+  }
+
+  .star-field {
+    background-image: radial-gradient(
+        1px 1px at 15% 20%,
+        oklch(var(--star-color) / 0.6) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1px 1px at 45% 60%,
+        oklch(var(--star-color) / 0.4) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1.5px 1.5px at 75% 10%,
+        oklch(var(--star-color) / 0.7) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1px 1px at 85% 40%,
+        oklch(var(--star-color) / 0.3) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1px 1px at 30% 80%,
+        oklch(var(--star-color) / 0.5) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1.5px 1.5px at 60% 90%,
+        oklch(var(--star-color) / 0.4) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1px 1px at 90% 70%,
+        oklch(var(--star-color) / 0.6) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        1px 1px at 5% 50%,
+        oklch(var(--star-color) / 0.3) 0%,
+        transparent 100%
+      );
+  }
+}
